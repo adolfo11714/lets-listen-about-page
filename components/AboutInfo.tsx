@@ -7,7 +7,7 @@ const AboutInfo: React.FC = () => (
       <div className="flex-1 flex flex-col items-start">
         {/* Cloud Heading */}
         <div className="relative mb-4">
-          <div className="bg-white text-blue-800 font-bold text-2xl px-8 py-4 rounded-full shadow-lg flex items-center justify-center" style={{ minWidth: '180px' }}>
+          <div className="bg-white font-bold text-2xl px-8 py-4 rounded-full shadow-lg flex items-center justify-center" style={{ minWidth: '180px', color: '#170566' }}>
             Our Mission
           </div>
           <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full"></span>
@@ -25,7 +25,7 @@ const AboutInfo: React.FC = () => (
       <div className="flex-1 flex flex-col items-start">
         {/* Cloud Heading */}
         <div className="relative mb-4">
-          <div className="bg-white text-blue-800 font-bold text-2xl px-8 py-4 rounded-full shadow-lg flex items-center justify-center" style={{ minWidth: '200px' }}>
+          <div className="bg-white font-bold text-2xl px-8 py-4 rounded-full shadow-lg flex items-center justify-center" style={{ minWidth: '200px', color: '#170566' }}>
             Our Philosophy
           </div>
           <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full"></span>
@@ -35,7 +35,7 @@ const AboutInfo: React.FC = () => (
         <p className="text-white max-w-xl mb-4 text-left">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </p>
-        <button className="bg-white text-blue-800 font-bold px-6 py-2 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-white" tabIndex={0} aria-label="More Info">
+        <button className="font-semibold px-6 py-2 rounded-full shadow focus:ring-2 focus:ring-white" style={{ backgroundColor: '#6d79e6', color: 'white', fontFamily: 'Inter, sans-serif' }} tabIndex={0} aria-label="More Info">
           More Info
         </button>
       </div>

@@ -5,7 +5,7 @@ import AboutInfo from '../components/AboutInfo';
 import '../src/app/globals.css';
 
 const About: React.FC = () => (
-  <div className="min-h-screen flex flex-col items-center justify-start p-6" style={{ backgroundColor: '#0A1BB4' }}>
+  <div className="min-h-screen flex flex-col items-center justify-start p-6" style={{ backgroundColor: '#170566' }}>
     <div className="w-full max-w-7xl">
       <Navbar />
       <div className="mb-18" />

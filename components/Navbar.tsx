@@ -48,7 +48,8 @@ const Navbar: React.FC = () => {
       {/* Donate button (right) */}
       <div className="flex-none">
         <button
-          className="bg-white text-blue-800 font-bold px-4 py-1 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-white"
+          className="font-semibold px-4 py-1 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-white"
+          style={{ backgroundColor: '#6d79e6', color: 'white', fontFamily: 'Inter, sans-serif' }}
           aria-label="Donate"
           tabIndex={0}
         >

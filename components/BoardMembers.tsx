@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../src/app/globals.css';
 
 
@@ -34,11 +34,24 @@ const members = [
   },
 ];
 
-const BoardMembers: React.FC = () => (
-  <section className="flex flex-col items-center mt-8">
+const BoardMembers: React.FC = () => {
+  const [expandedMembers, setExpandedMembers] = useState<Set<number>>(new Set());
+
+  const toggleMember = (index: number) => {
+    const newExpanded = new Set(expandedMembers);
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index);
+    } else {
+      newExpanded.add(index);
+    }
+    setExpandedMembers(newExpanded);
+  };
+
+  return (
+    <section className="flex flex-col items-center mt-8">
     {/* Cloud Heading */}
     <div className="relative mb-12">
-      <div className="bg-white text-blue-800 font-bold text-2xl px-8 py-4 rounded-full shadow-lg flex items-center justify-center" style={{ minWidth: '220px' }}>
+      <div className="bg-white font-bold text-2xl px-8 py-4 rounded-full shadow-lg flex items-center justify-center" style={{ minWidth: '220px', color: '#170566' }}>
         Board Members
       </div>
       {/* Cloud bubbles */}
@@ -51,7 +64,8 @@ const BoardMembers: React.FC = () => (
       {members.map((member, idx) => (
         <div
           key={idx}
-          className="flex flex-col items-center bg-blue-800 rounded-xl p-6 text-white shadow-lg"
+          className="flex flex-col items-center rounded-xl p-6 text-white shadow-lg"
+          style={{ backgroundColor: '#12025A' }}
           tabIndex={0}
           aria-label={`Board member: ${member.name}`}
         >
@@ -60,13 +74,45 @@ const BoardMembers: React.FC = () => (
             alt={member.name}
             className="w-32 h-32 rounded-lg border-4 border-white mb-4 object-cover"
           />
-          <div className="font-bold text-lg">{member.name}</div>
-          <div className="font-bold text-sm mb-2">{member.position}</div>
-          <p className="text-sm text-white/90 text-left">{member.description}</p>
+          <div className="font-bold text-lg w-full text-center">{member.name}</div>
+          <div className="font-bold text-sm mb-2 w-full text-center text-white/70">{member.position}</div>
+          
+          {/* Dropdown Toggle Button */}
+          <button
+            onClick={() => toggleMember(idx)}
+            className="flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors duration-200 mb-2"
+            aria-expanded={expandedMembers.has(idx)}
+            aria-controls={`member-description-${idx}`}
+          >
+            <span>Read More</span>
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${
+                expandedMembers.has(idx) ? 'rotate-180' : ''
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {/* Animated Dropdown Content */}
+          <div
+            id={`member-description-${idx}`}
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              expandedMembers.has(idx) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <p className="text-sm text-white/90 text-left leading-relaxed">
+              {member.description}
+            </p>
+          </div>
         </div>
       ))}
-    </div>
-  </section>
-);
+          </div>
+    </section>
+  );
+};
 
 export default BoardMembers; 
