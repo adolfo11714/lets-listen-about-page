@@ -57,7 +57,7 @@ const AboutInfo: React.FC = () => {
             aria-label="More Info"
             tabIndex={0}
             className="font-semibold px-6 py-2 rounded-full shadow transition-transform transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-white hover:scale-105 hover:shadow-lg hover:bg-indigo-700 active:scale-95"
-            style={{ backgroundColor: '#6d79e6', color: 'white', fontFamily: 'Inter, sans-serif' }}
+            style={{ backgroundColor: '#4959e4', color: 'white', fontFamily: 'Inter, sans-serif' }}
           >
             More Info
           </Link>

@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
       {/* Logo (left) */}
       <div className="flex-none">
         <Link href="/" aria-label="Home" tabIndex={0} className="focus:outline-none">
-          <img src="https://placehold.co/60x60?text=Logo" alt="Logo" className="rounded-lg border-4 border-white w-16 h-16" />
+          <img src="/logo.png" alt="Logo" className="rounded-lg w-16 h-16" />
         </Link>
       </div>
       {/* Hamburger (mobile) */}
@@ -77,7 +77,7 @@ const Navbar: React.FC = () => {
           aria-label="Donate"
           tabIndex={0}
           className="font-semibold px-6 py-2 rounded-full shadow transform transition-transform transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-white hover:scale-105 hover:shadow-lg hover:bg-indigo-700 active:scale-95"
-          style={{ backgroundColor: '#6d79e6', color: 'white', fontFamily: 'Inter, sans-serif' }}
+          style={{ backgroundColor: '#4959e4', color: 'white', fontFamily: 'Inter, sans-serif' }}
         >
           Donate
         </Link>
