@@ -6,7 +6,7 @@ const members = [
   {
     name: 'Bob Smith',
     position: 'Position',
-    image: 'https://placehold.co/150x150',
+    image: '/dummy-image.jpg',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
@@ -14,21 +14,21 @@ const members = [
   {
     name: 'Bob Smith',
     position: 'Position',
-    image: 'https://placehold.co/150x150',
+    image: '/dummy-image.jpg',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: 'Bob Smith',
     position: 'Position',
-    image: 'https://placehold.co/150x150',
+    image: '/dummy-image.jpg',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     name: 'Bob Smith',
     position: 'Position',
-    image: 'https://placehold.co/150x150',
+    image: '/dummy-image.jpg',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
@@ -72,38 +72,36 @@ const BoardMembers: React.FC = () => {
           <img
             src={member.image}
             alt={member.name}
-            className="w-32 h-32 rounded-lg border-4 border-white mb-4 object-cover"
+            className="w-48 h-48 rounded-lg border-4 border-white mb-4 object-cover"
           />
-          <div className="font-bold text-lg w-full text-center">{member.name}</div>
-          <div className="font-bold text-sm mb-2 w-full text-center text-white/70">{member.position}</div>
-          
-          {/* Dropdown Toggle Button */}
-          <button
-            onClick={() => toggleMember(idx)}
-            className="flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors duration-200 mb-2"
-            aria-expanded={expandedMembers.has(idx)}
-            aria-controls={`member-description-${idx}`}
-          >
-            <span>Read More</span>
-            <svg
-              className={`w-4 h-4 transition-transform duration-300 ${
-                expandedMembers.has(idx) ? 'rotate-180' : ''
-              }`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="font-bold text-2xl w-full text-center mt-2 mb-0">{member.name}</div>
+          <div className="flex items-center w-full my-2">
+            <div className="flex-grow border-t border-white/30"></div>
+            <button
+              onClick={() => toggleMember(idx)}
+              className="flex items-center gap-2 px-4 focus:outline-none focus:ring-2 focus:ring-white transition-colors duration-200"
+              aria-expanded={expandedMembers.has(idx)}
+              aria-controls={`member-description-${idx}`}
+              tabIndex={0}
+              aria-label={`Toggle description for ${member.name}`}
+              style={{ minWidth: 0 }}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          {/* Animated Dropdown Content */}
+              <svg
+                className={`w-5 h-5 transition-transform duration-300 ${expandedMembers.has(idx) ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div className="flex-grow border-t border-white/30"></div>
+          </div>
           <div
             id={`member-description-${idx}`}
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              expandedMembers.has(idx) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-            }`}
+            className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedMembers.has(idx) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
           >
+            <div className="font-bold text-base text-white/70 mb-2">{member.position}</div>
             <p className="text-sm text-white/90 text-left leading-relaxed">
               {member.description}
             </p>

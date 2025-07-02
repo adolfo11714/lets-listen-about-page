@@ -22,7 +22,7 @@ const AboutInfo: React.FC = () => (
       <img src="https://placehold.co/220x180" alt="Mission" className="rounded-lg border-8 border-white w-[220px] h-[180px] object-cover self-center" />
     </div>
     {/* Our Philosophy */}
-    <div className="flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8 lg:gap-110 lg:justify-between">
+    <div className="flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8 lg:gap-100 lg:justify-between">
       <div className="flex-1 flex flex-col items-start">
         {/* Cloud Heading */}
         <div className="relative mb-4">
