@@ -72,7 +72,7 @@ const BoardMembers: React.FC = () => {
           <img
             src={member.image}
             alt={member.name}
-            className="w-48 h-48 rounded-lg border-4 border-white mb-4 object-cover"
+            className="w-48 h-48 rounded-lg mb-4 object-cover"
           />
           <div className="font-bold text-2xl w-full text-center mt-2 mb-0">{member.name}</div>
           <div className="flex items-center w-full my-2">
