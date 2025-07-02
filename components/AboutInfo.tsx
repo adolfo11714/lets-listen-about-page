@@ -19,10 +19,10 @@ const AboutInfo: React.FC = () => (
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </p>
       </div>
-      <img src="https://placehold.co/220x180" alt="Mission" className="rounded-lg border-8 border-white w-[220px] h-[180px] object-cover self-center" />
+      <img src="/dummy-image-section.webp" alt="Mission" className="rounded-lg w-[500px] h-[375px] object-cover self-center" />
     </div>
     {/* Our Philosophy */}
-    <div className="flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8 lg:gap-100 lg:justify-between">
+    <div className="flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8 lg:gap-60 lg:justify-between">
       <div className="flex-1 flex flex-col items-start">
         {/* Cloud Heading */}
         <div className="relative mb-4">
@@ -46,7 +46,7 @@ const AboutInfo: React.FC = () => (
           More Info
         </Link>
       </div>
-      <img src="https://placehold.co/220x180" alt="Philosophy" className="rounded-lg border-8 border-white w-[220px] h-[180px] object-cover self-center" />
+      <img src="/dummy-image-section.webp" alt="Philosophy" className="rounded-lg w-[500px] h-[375px] object-cover self-center" />
     </div>
   </section>
 );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import '../src/app/globals.css';
@@ -13,17 +13,42 @@ const navLinks = [
 
 const Navbar: React.FC = () => {
   const router = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => setMobileMenuOpen((open) => !open);
+  const handleMenuClose = () => setMobileMenuOpen(false);
+
+  // Close menu on Escape
+  React.useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleMenuClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
 
   return (
-    <nav className="w-full max-w-7xl mx-auto flex items-center px-8 py-4">
+    <nav className="w-full max-w-7xl mx-auto flex items-center px-4 sm:px-8 py-4 relative">
       {/* Logo (left) */}
       <div className="flex-none">
         <Link href="/" aria-label="Home" tabIndex={0} className="focus:outline-none">
           <img src="https://placehold.co/60x60?text=Logo" alt="Logo" className="rounded-lg border-4 border-white w-16 h-16" />
         </Link>
       </div>
-      {/* Nav links (center) */}
-      <ul className="flex-1 flex justify-center gap-8 items-center">
+      {/* Hamburger (mobile) */}
+      <button
+        className="navxl:hidden ml-auto text-white focus:outline-none focus:ring-2 focus:ring-white p-2"
+        aria-label="Open menu"
+        tabIndex={0}
+        onClick={handleMenuToggle}
+      >
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      {/* Nav links (center, desktop) */}
+      <ul className="flex-1 hidden navxl:flex justify-center gap-8 items-center">
         {navLinks.map((link) => {
           const isActive = router.pathname === link.href;
           return (
@@ -45,8 +70,8 @@ const Navbar: React.FC = () => {
           );
         })}
       </ul>
-      {/* Donate button (right) */}
-      <div className="flex-none">
+      {/* Donate button (right, desktop) */}
+      <div className="flex-none hidden navxl:block">
         <Link
           href="/donate"
           aria-label="Donate"
@@ -57,6 +82,48 @@ const Navbar: React.FC = () => {
           Donate
         </Link>
       </div>
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-center navxl:hidden transition-all">
+          <button
+            className="absolute top-6 right-6 text-white focus:outline-none focus:ring-2 focus:ring-white p-2"
+            aria-label="Close menu"
+            tabIndex={0}
+            onClick={handleMenuClose}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <ul className="flex flex-col gap-8 items-center mt-12">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className="text-white text-2xl font-semibold px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-white hover:bg-white/10 transition-colors duration-200"
+                  aria-label={link.name}
+                  tabIndex={0}
+                  onClick={handleMenuClose}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/donate"
+                className="font-semibold px-6 py-2 rounded-full shadow bg-[#6d79e6] text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white hover:bg-indigo-700 transition-colors duration-200"
+                aria-label="Donate"
+                tabIndex={0}
+                style={{ fontFamily: 'Inter, sans-serif' }}
+                onClick={handleMenuClose}
+              >
+                Donate
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
