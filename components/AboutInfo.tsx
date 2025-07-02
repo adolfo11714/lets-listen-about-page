@@ -45,7 +45,7 @@ const AboutInfo: React.FC = () => {
       {/* Our Philosophy */}
       <div
         ref={philosophyRef as React.RefObject<HTMLDivElement>}
-        className={`flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8 lg:gap-60 lg:justify-between transition-all duration-700 ${philosophyInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        className={`flex flex-col lg:flex-row-reverse items-center lg:items-start gap-8 lg:gap-40 lg:justify-between transition-all duration-700 ${philosophyInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
         <div className="flex-1 flex flex-col items-start">
           <h2 className="font-bold text-4xl text-white mb-8">Our Philosophy</h2>

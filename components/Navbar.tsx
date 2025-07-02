@@ -84,44 +84,53 @@ const Navbar: React.FC = () => {
       </div>
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-center navxl:hidden transition-all">
-          <button
-            className="absolute top-6 right-6 text-white focus:outline-none focus:ring-2 focus:ring-white p-2"
-            aria-label="Close menu"
-            tabIndex={0}
-            onClick={handleMenuClose}
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex flex-col items-center justify-center navxl:hidden transition-all"
+          onClick={handleMenuClose}
+        >
+          <div
+            className="relative flex flex-col items-center w-full"
+            style={{ zIndex: 1 }}
+            onClick={e => e.stopPropagation()}
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <ul className="flex flex-col gap-8 items-center mt-12">
-            {navLinks.map((link) => (
-              <li key={link.name}>
+            <button
+              className="absolute top-6 right-6 text-white focus:outline-none focus:ring-2 focus:ring-white p-2"
+              aria-label="Close menu"
+              tabIndex={0}
+              onClick={handleMenuClose}
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <ul className="flex flex-col gap-8 items-center mt-12">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-white text-2xl font-semibold px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-white hover:bg-white/10 transition-colors duration-200"
+                    aria-label={link.name}
+                    tabIndex={0}
+                    onClick={handleMenuClose}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
                 <Link
-                  href={link.href}
-                  className="text-white text-2xl font-semibold px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-white hover:bg-white/10 transition-colors duration-200"
-                  aria-label={link.name}
+                  href="/donate"
+                  className="font-semibold px-6 py-2 rounded-full shadow bg-[#6d79e6] text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white hover:bg-indigo-700 transition-colors duration-200"
+                  aria-label="Donate"
                   tabIndex={0}
+                  style={{ fontFamily: 'Inter, sans-serif' }}
                   onClick={handleMenuClose}
                 >
-                  {link.name}
+                  Donate
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link
-                href="/donate"
-                className="font-semibold px-6 py-2 rounded-full shadow bg-[#6d79e6] text-white text-2xl focus:outline-none focus:ring-2 focus:ring-white hover:bg-indigo-700 transition-colors duration-200"
-                aria-label="Donate"
-                tabIndex={0}
-                style={{ fontFamily: 'Inter, sans-serif' }}
-                onClick={handleMenuClose}
-              >
-                Donate
-              </Link>
-            </li>
-          </ul>
+            </ul>
+          </div>
         </div>
       )}
     </nav>
