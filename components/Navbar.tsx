@@ -47,14 +47,15 @@ const Navbar: React.FC = () => {
       </ul>
       {/* Donate button (right) */}
       <div className="flex-none">
-        <button
-          className="font-semibold px-4 py-1 rounded-full shadow focus:outline-none focus:ring-2 focus:ring-white"
-          style={{ backgroundColor: '#6d79e6', color: 'white', fontFamily: 'Inter, sans-serif' }}
+        <Link
+          href="/donate"
           aria-label="Donate"
           tabIndex={0}
+          className="font-semibold px-6 py-2 rounded-full shadow transform transition-transform transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-white hover:scale-105 hover:shadow-lg hover:bg-indigo-700 active:scale-95"
+          style={{ backgroundColor: '#6d79e6', color: 'white', fontFamily: 'Inter, sans-serif' }}
         >
           Donate
-        </button>
+        </Link>
       </div>
     </nav>
   );
