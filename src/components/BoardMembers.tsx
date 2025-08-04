@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import '../src/app/globals.css';
 
 const useInView = (offset = 0) => {
   const ref = useRef<HTMLElement | null>(null);
@@ -53,6 +52,7 @@ const members = [
 
 const BoardMembers: React.FC = () => {
   const [expandedMembers, setExpandedMembers] = useState<Set<number>>(new Set());
+  const [titleRef, titleInView] = useInView(100);
 
   const toggleMember = (index: number) => {
     const newExpanded = new Set(expandedMembers);
@@ -66,7 +66,12 @@ const BoardMembers: React.FC = () => {
 
   return (
     <section className="flex flex-col items-center mt-8">
-      <h2 className="font-bold text-4xl text-white mb-8">Board Members</h2>
+      <h2 
+        ref={titleRef as React.RefObject<HTMLHeadingElement>}
+        className={`font-bold text-4xl text-white mb-8 transition-all duration-700 ${titleInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      >
+        Board Members
+      </h2>
       {/* Members Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl">
         {members.map((member, idx) => {

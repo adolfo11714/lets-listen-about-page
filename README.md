@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Let's Listen - About Page
+
+A React application showcasing the "Let's Listen" organization's about page with modern UI/UX design.
+
+## Features
+
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Modern React**: Built with React 18, TypeScript, and Vite
+- **Smooth Animations**: Scroll-triggered animations and transitions
+- **Accessibility**: ARIA labels, keyboard navigation, and semantic HTML
+- **Interactive Components**: Expandable board member cards and mobile navigation
+
+## Tech Stack
+
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router** - Client-side routing
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd lets-listen-about-page
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open your browser and navigate to `http://localhost:3000`
 
-## Learn More
+### Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── components/          # Reusable React components
+│   ├── AboutInfo.tsx   # Mission and philosophy sections
+│   ├── BoardMembers.tsx # Board member cards
+│   └── Navbar.tsx      # Navigation component
+├── pages/              # Page components
+│   └── About.tsx       # Main about page
+├── App.tsx             # Main app component with routing
+├── main.tsx            # Application entry point
+└── index.css           # Global styles and Tailwind imports
+```
 
-## Deploy on Vercel
+## Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Navbar
+- Responsive navigation with mobile menu
+- Active link highlighting
+- Keyboard accessibility
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### AboutInfo
+- Mission and philosophy sections
+- Scroll-triggered animations
+- Call-to-action buttons
+
+### BoardMembers
+- Interactive member cards
+- Expandable descriptions
+- Smooth animations
+
+## Styling
+
+The project uses Tailwind CSS for styling with custom configurations:
+- Custom breakpoint for navigation (`navxl: 1125px`)
+- Inter font family
+- Custom color scheme matching the brand
+
+## Accessibility
+
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- Focus management
+- Screen reader compatibility
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## License
+
+This project is private and proprietary.

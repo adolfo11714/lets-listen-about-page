@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import BoardMembers from '../components/BoardMembers';
 import AboutInfo from '../components/AboutInfo';
-import '../src/app/globals.css';
 
 const About: React.FC = () => (
   <div className="min-h-screen flex flex-col items-center justify-start p-6" style={{ backgroundColor: '#170566' }}>
